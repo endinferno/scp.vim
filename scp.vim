@@ -13,7 +13,7 @@ function! s:scpFile()
 		return
 	endif
 	let s:fileFullName = expand('%:p')
-	let s:scpCommand = "silent !scp " . s:fileFullName . " " . g:scp_vim_account . "@" . g:scp_vim_ip . ":~"
+	let s:scpCommand = "silent !scp " . s:fileFullName . " " . g:scp_vim_account . "@" . g:scp_vim_ip . ":" . g:scp_vim_remote_folder
 	echo "Waiting..."
 	let s:ret = execute(s:scpCommand)
 	let s:idx = stridx(s:ret, "lost connection")
@@ -25,17 +25,17 @@ function! s:scpFile()
 endfunction
 
 function! s:echoErr(msg)
-	echohl None 
-	echo "[Scp] : " 
-	echohl ErrorMsg 
-	echon a:msg
-	echohl None
+	silent echohl None
+	silent echo "[Scp] : "
+	silent echohl ErrorMsg
+	silent echon a:msg
+	silent echohl None
 endfunction
 
 function! s:echoSuccess(msg)
-	echohl None 
-	echo "[Scp] : " 
-	echohl SignColumn 
-	echon a:msg
-	echohl None
+	silent echohl None
+	silent echo "[Scp] : "
+	silent echohl SignColumn
+	silent echon a:msg
+	silent echohl None
 endfunction
