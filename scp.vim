@@ -14,7 +14,6 @@ function! s:scpFile()
 	endif
 	let s:fileFullName = expand('%:p')
 	let s:scpCommand = "silent !scp " . s:fileFullName . " " . g:scp_vim_account . "@" . g:scp_vim_ip . ":" . g:scp_vim_remote_folder
-	echo "Waiting..."
 	let s:ret = execute(s:scpCommand)
 	let s:idx = stridx(s:ret, "lost connection")
 	if s:idx == -1
