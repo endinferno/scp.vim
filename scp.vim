@@ -24,17 +24,17 @@ function! s:scpFile()
 endfunction
 
 function! s:echoErr(msg)
-	silent echohl None
-	silent echo "[Scp] : "
-	silent echohl ErrorMsg
-	silent echon a:msg
-	silent echohl None
+	echohl None
+	echo "[Scp] : "
+	echohl ErrorMsg
+	echon a:msg
+	echohl None
 endfunction
 
 function! s:echoSuccess(msg)
-	silent echohl None
-	silent echo "[Scp] : "
-	silent echohl SignColumn
-	silent echon a:msg
-	silent echohl None
+	echohl None
+	echo "[Scp] : "
+	echohl SignColumn
+	echon a:msg
+	echohl None
 endfunction
